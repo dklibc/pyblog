@@ -1,3 +1,12 @@
+#login_form {
+	display: none;
+}
+
+#login_failed_msg {
+	display: none;
+	color: red;
+}
+
 div.note_preview {
 	margin: 1em;
 }
@@ -8,12 +17,12 @@ div.note_preview_title {
 }
 
 div.note_preview_body {
-#	line-height: 1.5em;
+/*	line-height: 1.5em; */
 	margin-top: 1em;
 }
 
 div.note_body {
-#	line-height: 1.5em;
+/*	line-height: 1.5em; */
 	margin-top: 1em;
 }
 

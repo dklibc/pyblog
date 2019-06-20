@@ -10,3 +10,7 @@ db_pwd = 'pyblog'
 db_name = 'pyblog'
 
 notes_on_page = 3
+
+login = 'pyblog'
+pwd = 'pyblog'
+

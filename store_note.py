@@ -9,8 +9,11 @@ import cgitb
 import db
 import pyblog
 import markup
+import auth
 
 cgitb.enable()
+
+auth.assert_auth()
 
 form = cgi.FieldStorage()
 
@@ -40,4 +43,4 @@ if s != None:
 
 db.store_note(note)
 
-pyblog.http_redirect("/")
+pyblog.reply_ok("Done")

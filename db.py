@@ -6,6 +6,7 @@ import mysql.connector as mariadb
 
 import conf
 import pyblog
+import auth
 
 conn = mariadb.connect(user=conf.db_user, password=conf.db_pwd,
 		       database=conf.db_name)
@@ -73,3 +74,20 @@ def get_notes_count():
 	cursor.execute("SELECT COUNT(*) FROM note")
 	r = cursor.fetchone()
 	return int(r[0])
+
+def get_session():
+	cursor.execute("SELECT session_id, session_start from main")
+
+	r = cursor.fetchone()
+	if r == None:
+		pyblog.err("Failed to read session record from DB")
+
+	session = auth.Session()
+	session.id = r[0]
+	session.start = r[1]
+	return session
+
+def store_session(session):
+	cursor.execute("UPDATE main SET session_id=%s, session_start=%s",
+		       (session.id, session.start, ))
+	conn.commit()
